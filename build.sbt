@@ -1,5 +1,5 @@
 lazy val root = project.in(file(".")).
-  enablePlugins(ScalaJSPlugin, SiteScaladocPlugin, GhpagesPlugin)
+  enablePlugins(ScalaJSPlugin)
 
 name := "RxScala.js"
 
@@ -9,9 +9,7 @@ version := "0.15.2"
 
 organization := "com.github.lukajcb"
 
-scalaVersion := "2.12.4"
-
-crossScalaVersions := Seq("2.10.6", "2.11.11", "2.12.4")
+scalaVersion := "2.12.3"
 
 
 libraryDependencies ++= Seq(
@@ -25,7 +23,6 @@ testFrameworks += new TestFramework("utest.runner.Framework")
 
 jsDependencies += "org.webjars.npm" % "rxjs" % "5.4.3" % Test / "bundles/Rx.min.js" commonJSName "Rx"
 
-git.remoteRepo := "git@github.com:LukaJCB/rxscala-js.git"
 
 publishMavenStyle := true
 
