@@ -3265,17 +3265,18 @@ private[rxscalajs] trait ObservableInstances {
       x.combineLatestWith(y)(Monoid[A].combine)
   }
 
-  implicit def observableParallel: Parallel[Observable, CombineObservable] = new Parallel[Observable, CombineObservable] {
-    def monad = observableMonad
-
-    def applicative = CombineObservable.combineObservableApplicative
-
-    def sequential = new (CombineObservable ~> Observable) {
-      def apply[A](fa: CombineObservable[A]) = fa.value
-    }
-
-    def parallel = new (Observable ~> CombineObservable) {
-      def apply[A](fa: Observable[A]) = new CombineObservable(fa)
-    }
-  }
+//  implicit def observableParallel: Parallel[Observable] = new Parallel[Observable] {
+//    type F[A] = CombineObservable[A]
+//    def monad = observableMonad
+//
+//    def applicative = CombineObservable.combineObservableApplicative
+//
+//    def sequential = new (F ~> Observable) {
+//      def apply[A](fa: F[A]) = fa.value
+//    }
+//
+//    def parallel = new (Observable ~> F[_]) {
+//      def apply[A](fa: Observable[A]) = new CombineObservable(fa)
+//    }
+//  }
 }

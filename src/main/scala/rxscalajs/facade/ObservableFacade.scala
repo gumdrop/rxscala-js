@@ -5,7 +5,7 @@ import rxscalajs.subscription.{ObserverFacade, Subscription}
 import scala.scalajs.js.annotation.{JSImport, JSName}
 import scala.scalajs.js
 import scala.scalajs.js._
-import org.scalajs.dom._
+import org.scalajs.dom.{Notification => JsNotification, _}
 import rxscalajs.dom.{AjaxRequest, AjaxResponse}
 
   @js.native
