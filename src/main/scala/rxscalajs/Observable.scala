@@ -423,7 +423,7 @@ class Observable[+T] protected[rxscalajs](val inner: ObservableFacade[T]) {
   def collect[B](partialProject: PartialFunction[T, B]): Observable[B] = Observable.create[B] { obs =>
     val internal = subscribe((x: T) => if (partialProject.isDefinedAt(x)) obs.next(partialProject(x)) else (),
       e => obs.error(e),
-      () => obs.complete)
+      () => obs.complete())
     () => internal.unsubscribe()
   }
 

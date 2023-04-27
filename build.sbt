@@ -9,12 +9,12 @@ version := "0.15.4"
 
 organization := "com.github.lukajcb"
 
-scalaVersion := "2.13.10"
-
+scalaVersion := "3.2.2"
 
 libraryDependencies ++= Seq(
-  "org.scala-js" %%% "scalajs-dom" % "2.1.0",
-  "org.typelevel" %%% "cats-core" % "2.7.0"
+
+ "org.scala-js" %%% "scalajs-dom" % "2.2.0",
+  "org.typelevel" %%% "cats-core" % "2.9.0"
 //  "com.lihaoyi" %%% "utest" % "0.4.5" % Test,
 //  "org.typelevel" %%% "cats-testkit" % "1.0.0-RC1" % Test
 )
