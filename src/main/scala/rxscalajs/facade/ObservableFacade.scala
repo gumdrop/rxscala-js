@@ -2,7 +2,7 @@ package rxscalajs.facade
 import rxscalajs._
 import rxscalajs.subscription.{ObserverFacade, Subscription}
 
-import scala.scalajs.js.annotation.{JSImport, JSName}
+import scala.scalajs.js.annotation.{JSImport, JSName, JSGlobal}
 import scala.scalajs.js
 import scala.scalajs.js._
 import org.scalajs.dom.{Notification => JsNotification, _}
@@ -15,7 +15,7 @@ import rxscalajs.dom.{AjaxRequest, AjaxResponse}
   }
 
   @js.native
-  @JSImport("rxjs/Rx", "GroupedObservable", globalFallback = "Rx.GroupedObservable")
+  @JSGlobal("Rx.GroupedObservable")
   class GroupedObservableFacade[K,T] protected() extends ObservableFacade[T] {
     def this(key: K, groupSubject: SubjectFacade[T], refCountSubscription: Subscription) = this()
     val key: K = js.native
@@ -27,14 +27,14 @@ import rxscalajs.dom.{AjaxRequest, AjaxResponse}
   trait Timestamp[+T] extends js.Object { def value: T; def timestamp: Double }
 
   @js.native
-  @JSImport("rxjs/Rx", "ErrorObservable", globalFallback = "Rx.ErrorObservable")
+  @JSGlobal("Rx.ErrorObservable")
   class ErrorObservableFacade protected() extends ObservableFacade[js.Any] {
     def this(error: js.Any,scheduler: Scheduler = ???) = this()
   }
 
 
   @js.native
-  @JSImport("rxjs/Rx", "Observable", globalFallback = "Rx.Observable")
+  @JSGlobal("Rx.Observable")
   class ObservableFacade[+T] protected() extends Subscribable[T] {
     def this(subscribe: js.Function = js.native) = this()
 
@@ -187,7 +187,7 @@ import rxscalajs.dom.{AjaxRequest, AjaxResponse}
   }
 
   @js.native
-  @JSImport("rxjs/Rx", "Observable", globalFallback = "Rx.Observable")
+  @JSGlobal("Rx.Observable")
   object ObservableFacade extends js.Object {
     type CreatorFacade = Unit | js.Function0[Unit]
 
