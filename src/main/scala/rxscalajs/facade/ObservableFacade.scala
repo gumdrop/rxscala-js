@@ -15,7 +15,7 @@ import rxscalajs.dom.{AjaxRequest, AjaxResponse}
   }
 
   @js.native
-  @JSGlobal("Rx.GroupedObservable")
+  @JSImport("rxjs/Rx","GroupedObservable")
   class GroupedObservableFacade[K,T] protected() extends ObservableFacade[T] {
     def this(key: K, groupSubject: SubjectFacade[T], refCountSubscription: Subscription) = this()
     val key: K = js.native
@@ -27,14 +27,14 @@ import rxscalajs.dom.{AjaxRequest, AjaxResponse}
   trait Timestamp[+T] extends js.Object { def value: T; def timestamp: Double }
 
   @js.native
-  @JSGlobal("Rx.ErrorObservable")
+  @JSImport("rxjs/Rx","ErrorObservable")
   class ErrorObservableFacade protected() extends ObservableFacade[js.Any] {
     def this(error: js.Any,scheduler: Scheduler = ???) = this()
   }
 
 
   @js.native
-  @JSGlobal("Rx.Observable")
+  @JSImport("rxjs/Rx","Observable")
   class ObservableFacade[+T] protected() extends Subscribable[T] {
     def this(subscribe: js.Function = js.native) = this()
 
@@ -187,7 +187,7 @@ import rxscalajs.dom.{AjaxRequest, AjaxResponse}
   }
 
   @js.native
-  @JSGlobal("Rx.Observable")
+  @JSImport("rxjs/Rx","Observable")
   object ObservableFacade extends js.Object {
     type CreatorFacade = Unit | js.Function0[Unit]
 

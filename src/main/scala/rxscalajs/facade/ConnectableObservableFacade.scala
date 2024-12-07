@@ -10,7 +10,7 @@ import scala.scalajs.js
 
 
 @js.native
-@JSGlobal("Rx.ConnectableObservable")
+@JSImport("rxjs/Rx","ConnectableObservable")
 class ConnectableObservableFacade[+T] protected() extends ObservableFacade[T] {
   def this(source: ObservableFacade[T], subjectFactory: js.Function0[SubjectFacade[T]]) = this()
   def connect(): Subscription = js.native
