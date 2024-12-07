@@ -6,7 +6,7 @@ import scala.scalajs.js
 
 
 @js.native
-@JSGlobal("Rx.ReplaySubject")
+@JSImport("rxjs/Rx","ReplaySubject")
 class ReplaySubjectFacade[T] protected() extends SubjectFacade[T] {
   def this(bufferSize: Int = ???, windowTime: Int = ???, scheduler: Scheduler = ???) = this()
 }
